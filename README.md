@@ -42,14 +42,13 @@
 HTML은 Vercel 기본값(매번 최신 확인)을 따르므로, 글을 고치면 바로 반영됩니다.
 사진·영상을 **같은 파일명으로 교체**하면 방문자 브라우저에 최대 7일간 이전 파일이 남을 수 있으니, 교체할 때는 파일명을 바꾸고(예: `hero-land-2.mp4`) HTML의 경로도 함께 바꿔 주세요.
 
-### 도메인 연결 후 할 일
+### 도메인
 
-- Vercel → Project → **Settings → Domains**에서 도메인을 연결합니다.
-- 도메인이 정해지면 세 HTML 파일의 `og:image`를 절대 주소로 바꿔 주세요.
-  카카오톡 · 페이스북 링크 미리보기는 상대 경로(`img/og.jpg`)를 읽지 못합니다.
-  ```html
-  <meta property="og:image" content="https://도메인/img/og.jpg">
-  ```
+- 주소: **https://snpdental.com** (가비아에서 구매, `www.snpdental.com`도 연결)
+- 연결: Vercel → Project → **Settings → Domains**에 추가 → Vercel이 알려주는 A · CNAME 값을 가비아 **DNS 관리**에 입력 (네임서버는 가비아 기본값 유지)
+- 세 HTML 파일의 `og:image` · `og:url`은 `https://snpdental.com/...` 절대 주소로 설정되어 있어 카카오톡 · 페이스북 링크 미리보기에 사진이 나옵니다.
+  미리보기가 예전 그대로면 카카오 개발자 사이트의 **공유 디버거**에서 주소를 넣고 캐시를 초기화하세요.
+- 도메인 자동 연장을 켜 두세요. 만료되면 사이트가 멈춥니다.
 
 ## 로컬에서 보기
 
