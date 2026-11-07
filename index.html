@@ -690,7 +690,7 @@ html[lang="en"] .nav a{white-space:nowrap;padding:8px 11px}
 <section class="sec" id="care">
   <div class="care-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="sec-head care-head"><div class="titled"><h2 class="h2 rv care-h">더하지 않아서 정직합니다.<br>꼭 필요한 치료를 건강보험 기준 안에서 합니다.</h2><p class="care-sub rv rv-d1">근거에 따라, 필요한 만큼만 치료합니다</p></div></div>
+    <div class="sec-head care-head"><div class="titled"><h2 class="h2 rv care-h">더하지 않아서 정직합니다.<br>꼭 필요한 치료를 건강보험 기준 안에서 합니다.</h2><p class="care-sub">근거에 따라, 필요한 만큼만 치료합니다</p></div></div>
     <div class="care-grid">
       <div class="card rv">
         <h3>진료 항목</h3>
@@ -985,14 +985,14 @@ window.SNP_I18N={en:{"에스앤피 치과의원 인트로": "S&P Dental Clinic i
   document.querySelectorAll('.rv,#timeline,#gallery,.titled,.sec-head,.ed-intro,.story-band,.st-in,.closing .wrap').forEach(el=>io.observe(el));
   // headings: wrap each line so it can be written left to right (re-run on language change)
   window.snpApply&&window.snpApply();
-  window.snpSplit=function(){document.querySelectorAll('.h2.rv,.closing h2.rv').forEach(h=>{
+  window.snpSplit=function(){document.querySelectorAll('.h2.rv,.closing h2.rv,.care-sub').forEach(h=>{
     if(!h.dataset.src)h.dataset.src=h.innerHTML;
     const tr=window.snpTr||(x=>x);const tmp=document.createElement('div');
-    const parts=h.dataset.src.split(/<br\s*\/?>/i).map(p=>{tmp.innerHTML=p.trim();return tr(tmp.textContent.trim());});let c=0;
+    const parts=h.dataset.src.split(/<br\s*\/?>/i).map(p=>{tmp.innerHTML=p.trim();return tr(tmp.textContent.trim());});let c=h.classList.contains('care-sub')?(+(document.querySelector('.care-h')||{dataset:{}}).dataset.cend||0):0;
     const zh=(window.snpLang&&['zh','ja'].includes(window.snpLang()));
     h.innerHTML=parts.map(txt=>{const words=(zh?[txt]:txt.split(' ')).map(w=>'<span class="w">'+[...w].map(ch=>`<span class="ch" style="--c:${c++}">${ch.replace('&','&amp;')}</span>`).join('')+'</span>');
       c+=1;return `<span class="ln">${words.join(' ')}</span>`;}).join('');
-    h.setAttribute('aria-label',parts.join(' '));});};
+    h.dataset.cend=c;h.setAttribute('aria-label',parts.join(' '));});};
   window.snpSplit();
   // staggered lists
   document.querySelectorAll('.rules,.care-list,.park ul,#acc,.p-grid,.tl-legend,.map-links').forEach(el=>{el.classList.add('stg');[...el.children].forEach((c,i)=>c.style.setProperty('--d',i));io.observe(el);});
