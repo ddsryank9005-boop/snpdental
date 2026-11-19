@@ -14,10 +14,22 @@ header a{font-size:14px;opacity:.75;color:inherit;text-decoration:none}
 header a:hover{opacity:1;text-decoration:underline}
 main{flex:1;min-height:0;width:100%;display:flex;justify-content:center;align-items:center;padding:16px}
 video{height:100%;max-height:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+#snd{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);padding:12px 22px;border:0;border-radius:999px;background:#F5F3EC;color:#1b2722;font:600 15px "Noto Sans KR",system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.4);cursor:pointer}
+#snd[hidden]{display:none}
 </style>
 </head>
 <body>
 <header><h1>예약 안내 영상</h1><a href="/">에스앤피 치과의원 홈페이지</a></header>
-<main><video controls playsinline preload="metadata" src="/video/reserve-guide.mp4#t=0.1">영상을 재생할 수 없는 브라우저입니다.</video></main>
+<main><video id="v" controls autoplay playsinline preload="auto" src="/video/reserve-guide.mp4">영상을 재생할 수 없는 브라우저입니다.</video></main>
+<button id="snd" type="button" hidden>소리 켜기</button>
+<script>
+(function(){var v=document.getElementById('v'),b=document.getElementById('snd');
+function showBtn(){b.hidden=false}
+b.onclick=function(){v.muted=false;v.volume=1;v.play();b.hidden=true};
+v.addEventListener('volumechange',function(){if(!v.muted)b.hidden=true});
+var p=v.play();
+if(p&&p.catch)p.catch(function(){v.muted=true;var q=v.play();if(q&&q.then)q.then(showBtn).catch(function(){})});
+})();
+</script>
 </body>
 </html>
