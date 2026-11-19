@@ -608,6 +608,15 @@ html[lang="en"] .nav a{white-space:nowrap;padding:8px 11px}
 .fab .reserve,.fab .vidbtn{background:#fff;border:1px solid var(--g);color:var(--g)}
 }
 @media (max-width:720px){.fab{display:none}}
+
+.pk-gal{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.pk-gal figure{margin:0}
+.pk-gal img{display:block;width:100%;height:auto;border-radius:10px;background:#e8e6df}
+.pk-gal figcaption{margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--muted);letter-spacing:-.01em}
+.pk-gal figcaption b{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin-right:7px;border-radius:50%;background:var(--g);color:var(--cream);font-size:11.5px;font-weight:600}
+.pk-a{grid-row:span 2;align-self:start}
+.pk-b,.pk-c{align-self:start}
+@media (max-width:720px){.pk-gal{grid-template-columns:1fr;gap:22px}.pk-a{grid-row:auto}.pk-a img{max-height:none}}
 </style>
 </head>
 <body class="intro-open">
@@ -825,17 +834,10 @@ html[lang="en"] .nav a{white-space:nowrap;padding:8px 11px}
           <li>방문객 지정 주차면은 <strong>1대</strong>입니다.</li>
           <li>다음 방문객을 위해 <strong>진료받으시는 동안만 무료 주차</strong>하실 수 있습니다.</li>
         </ul>
-        <div class="sign">
-          <svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg" aria-label="지정 주차 표지 예시">
-            <rect x="0.5" y="0.5" width="359" height="149" rx="6" fill="#3A5248"/>
-            <rect x="10" y="10" width="340" height="130" rx="3" fill="none" stroke="#F5F3EC" stroke-opacity=".35"/>
-            <circle cx="76" cy="75" r="40" fill="none" stroke="#F5F3EC" stroke-width="2"/>
-            <text x="76" y="92" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="50" fill="#F5F3EC">P</text>
-            <line x1="138" y1="40" x2="138" y2="110" stroke="#F5F3EC" stroke-opacity=".35"/>
-            <text x="160" y="68" font-family="Cormorant Garamond,serif" font-size="26" fill="#F5F3EC">S&amp;P</text>
-            <text x="160" y="98" font-family="Noto Sans KR,sans-serif" font-size="15" fill="#F5F3EC" fill-opacity=".85">방문객 지정 주차</text>
-          </svg>
-          <small>표지 제작 후 실제 사진으로 교체</small>
+        <div class="pk-gal">
+          <figure class="pk-a"><img src="img/far_port.jpg" alt="주차장 안쪽에서 바라본 에스앤피 지정주차 위치" loading="lazy" decoding="async"><figcaption><b>1</b>주차장 안쪽에서 보이는 모습</figcaption></figure>
+          <figure class="pk-b"><img src="img/far_wide.jpg" alt="에스앤피 치과의원 지정주차 1면 위치" loading="lazy" decoding="async"><figcaption><b>2</b>노란색으로 표시한 곳이 지정주차 자리입니다</figcaption></figure>
+          <figure class="pk-c"><img src="img/sign_clean.jpg" alt="에스앤피 치과의원 4F 지정 주차 푯말" loading="lazy" decoding="async"><figcaption><b>3</b>벽의 초록색 푯말을 찾아 주세요</figcaption></figure>
         </div>
       </div>
     </div>
